@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | live2d-widget.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Add the Sseexxyyy live2d to webpages."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="live2d-widget.js"><meta property="twitter:description" content="Add the Sseexxyyy live2d to webpages."></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/xiazeyu/live2d-widget.js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">live2d-widget.js</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#useage" data-ice="link">Useage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#hexo" data-ice="link">Hexo</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#webpages" data-ice="link">Webpages</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#file-on-your-server" data-ice="link">File on your server</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#bookmark--any-pages-" data-ice="link">Bookmark (any pages)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#settings" data-ice="link">Settings</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#custom-model" data-ice="link">Custom model</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#contribute" data-ice="link">Contribute</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#releated-projects" data-ice="link">Releated projects</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#about-me" data-ice="link">About me</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#imported" data-ice="link">Imported</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#special-thanks" data-ice="link">Special Thanks</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#unreleased--2018-02-15-" data-ice="link">Unreleased (2018-02-15)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#3-0-4--2018-02-07-" data-ice="link">3.0.4 (2018-02-07)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#3-0-2--2018-01-20-" data-ice="link">3.0.2 (2018-01-20)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#3-0-1--2018-01-19-" data-ice="link">3.0.1 (2018-01-19)</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#3-0-0--2018-01-13-" data-ice="link">3.0.0 (2018-01-13)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/CHANGELOG.html"><a href="manual/CHANGELOG.html#breaking-change" data-ice="link">BREAKING CHANGE</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><p><a href="https://www.npmjs.com/package/live2d-widget"><img src="https://badge.fury.io/js/live2d-widget.svg?label=live2d-widget" alt="npm"></a>
+
+</p>
+<p><a href="https://www.npmjs.com/package/live2d-widget"><img src="https://img.shields.io/npm/dt/live2d-widget.svg" alt="downloads"></a>
+<a href="https://www.npmjs.com/package/live2d-widget"><img src="https://img.shields.io/npm/dm/live2d-widget.svg" alt="downloads-month"></a></p>
+<p><a href="https://github.com/xiazeyu/live2d-widget.js/stargazers"><img src="https://img.shields.io/github/stars/xiazeyu/live2d-widget.js.svg" alt="GitHub stars"></a>
+<a href="https://github.com/xiazeyu/live2d-widget.js/network"><img src="https://img.shields.io/github/forks/xiazeyu/live2d-widget.js.svg" alt="GitHub forks"></a>
+<a href="https://github.com/xiazeyu/live2d-widget.js/issues"><img src="https://img.shields.io/github/issues/xiazeyu/live2d-widget.js.svg" alt="GitHub issues"></a></p>
+<p><a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a>
+<a href="https://github.com/xiazeyu/live2d-widget.js/blob/master/LICENSE"><img src="https://img.shields.io/github/license/xiazeyu/live2d-widget.js.svg" alt="license"></a></p>
+<h1 id="live2d-widget-js">live2d-widget.js</h1><p>Add the Sseexxyyy live2d to your webpages! Seperated from <a href="https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a>.</p>
+<p>Demo: <a href="https://xiazeyu.github.io/live2d-widget.js/dev.html">Still working, but you can have a look~</a></p>
+<p>Docs(including APIs): <a href="https://xiazeyu.github.io/live2d-widget.js/">Click me!</a></p>
+<p>Online generator: ;)</p>
+<h2 id="useage">Useage</h2><h3 id="hexo">Hexo</h3><p>Please visit <a href="https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a> for the hexo plugin.</p>
+<h3 id="webpages">Webpages</h3><h4 id="file-on-your-server">File on your server</h4><p>Download the <a href="https://github.com/xiazeyu/live2d-widget.js/releases">latest release</a>,</p>
+<p>and then copy and extract the <code>lib</code> folder to your website.</p>
+<p>Use ;) <strong>(recommended)</strong> to generate codes.</p>
+<p><details><summary>However, if you want to do it manually, follow the instruction below:</summary><br>
+
+import the js:
+
+<code>html
+
+&lt;script src = &quot;( your script path here )&quot;&gt;&lt;/script&gt;</code>
+
+Then call the function along with your config.
+
+<code>js
+L2Dwidget.init({
+  &apos;config1&apos;: &apos;value1&apos;,
+  &apos;config2&apos;: &apos;value2&apos;,
+});</code>
+
+</details>
+
+</p>
+<h3 id="bookmark--any-pages-">Bookmark (any pages)</h3><p>TBD.</p>
+<p><a href="https://www.cnblogs.com/pcyy/p/5655542.html">https://www.cnblogs.com/pcyy/p/5655542.html</a></p>
+<h2 id="settings">Settings</h2><p>See the <a href="https://xiazeyu.github.io/live2d-widget.js/docs/class/src/index.js~L2Dwidget.html#instance-method-init">document</a>.</p>
+<p><details><summary>Current supported models:</summary><br>
+
+  - <code>chitose</code>
+  - <code>Epsilon2.1</code>
+  - <code>Gantzert_Felixander</code>
+  - <code>haru01</code>
+  - <code>haru02</code>
+  - <code>haruto</code>
+  - <code>hibiki</code>
+  - <code>hijiki</code>
+  - <code>izumi</code>
+  - <code>koharu</code>
+  - <code>miku</code>
+  - <code>nico</code>
+  - <code>ni-j</code>
+  - <code>nipsilon</code>
+  - <code>nito</code>
+  - <code>shizuku</code>
+  - <code>tororo</code>
+  - <code>tsumiki</code>
+  - <code>Unitychan</code>
+  - <code>wanko</code>
+  - <code>z16</code>
+
+</details>
+
+</p>
+<h2 id="custom-model">Custom model</h2><ol>
+<li><p>Create a <code>live2d_models</code> folder at your blog&apos;s root directory.</p>
+</li>
+<li><p>Create a folder by the name of your model.</p>
+</li>
+<li><p>Copy your model to this folder.</p>
+</li>
+</ol>
+<p><strong>Attention! The path of the model&apos;s json must be  <code>/live2d_models/{name}/{name}.model.json</code></strong></p>
+<p><details><summary>An Example:</summary><br>
+
+Your model is named <code>mymiku</code>.
+
+Then, create a folder at  <code>/</code> (Which should exists <code>_config.yml</code> &#x3001;<code>sources</code> &#x3001; <code>themes</code> ) named <code>mymiku</code>.
+
+Copy your model to <code>/live2d_models/mymiku/</code>.
+
+Up to now, there should be <code>mymiku.model.json</code> in the directory of <code>/live2d_models/mymiku/</code>.
+
+</details>
+
+</p>
+<p><br>~The problem was once releated to <a href="https://github.com/EYHN/hexo-helper-live2d/issues/22">(#22)</a>.~</p>
+<p><br></p>
+<p>Enjoy!:beer:</p>
+<blockquote>
+<p>This is my first hexo plugin, star :star: and watch :eyeglasses:, pull request is also welcomed.</p>
+</blockquote>
+<p>Github: <a href="https://github.com/EYHN/hexo-helper-live2d">https://github.com/EYHN/hexo-helper-live2d</a></p>
+<p>issues: <a href="https://github.com/EYHN/hexo-helper-live2d/issues">https://github.com/EYHN/hexo-helper-live2d/issues</a></p>
+<h2 id="contribute">Contribute</h2><p><strong>Please pay enough attention to this document if you want to commit your changes or submit issues.</strong></p>
+<p><a href="./manual/./CONTRIBUTING.md">CONTRIBUTING</a></p>
+<h2 id="releated-projects">Releated projects</h2><ul>
+<li><p><a href="http://sites.cybernoids.jp/cubism-sdk2_e/webgl2-1">Cubism SDK WebGL 2.1</a></p>
+</li>
+<li><p><a href="https://github.com/xiazeyu/live2d-widget.js">live2d-widget.js</a></p>
+</li>
+<li><p><a href="https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a></p>
+</li>
+<li><p><a href="https://github.com/avgjs/pixi-live2d">pixi-live2d</a></p>
+</li>
+<li><p><a href="https://github.com/Live2D/CubismJsComponents">CubismJsComponents</a></p>
+</li>
+</ul>
+<h2 id="about-me">About me</h2><p><a href="https://delusion.coding.me/"><img src="https://img.shields.io/badge/author-cneyhn-green.svg" alt="Author"></a></p>
+<p><a href="./manual/tencent://message/?uin=1106996185&amp;Site=Senlon.Net&amp;Menu=yes"><img src="https://img.shields.io/badge/QQ-1106996185-blue.svg" alt="Author QQ"></a></p>
+<p><a href="./manual/mailto:cneyhn@gmail.com"><img src="https://img.shields.io/badge/Emali%20me-cneyhn@gmail.com-green.svg" alt="Author Email"></a></p>
+<p><a href="https://xiazeyu.coding.me/"><img src="https://img.shields.io/badge/author-xiazeyu-green.svg" alt="Collaborator 0"></a></p>
+<p><a href="./manual/tencent://message/?uin=2320732807&amp;Site=Senlon.Net&amp;Menu=yes"><img src="https://img.shields.io/badge/QQ-2320732807-blue.svg" alt="Collaborator 0 QQ"></a></p>
+<p><a href="./manual/mailto:xiazeyu_2011@126.com"><img src="https://img.shields.io/badge/Emali%20me-xiazeyu_2011@126.com-green.svg" alt="Collaborator 0 Email"></a></p>
+<h2 id="imported">Imported</h2><p><a href="https://github.com/matthewhudson/current-device"><img src="https://img.shields.io/npm/v/current-device.svg?label=current-device" alt="current-device"></a></p>
+<h2 id="special-thanks">Special Thanks</h2><ul>
+<li>@mashirozx </li>
+<li>@fghrsh</li>
+<li>@journey-ad</li>
+<li>@gwzz</li>
+</ul>
+<p><br></p>
+<p>Open sourced under the GPL v2.0 license.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
