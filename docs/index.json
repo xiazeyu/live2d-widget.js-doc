@@ -10502,8 +10502,8 @@
   },
   {
     "kind": "manualAsset",
-    "longname": "D:\\git\\live2d-widget.js\\docsrc\\manual\\asset",
-    "name": "./docsrc/manual/asset",
+    "longname": "D:\\git\\live2d-widget.js\\ghpages\\assets",
+    "name": "./ghpages/assets/",
     "static": true,
     "access": "public"
   },
