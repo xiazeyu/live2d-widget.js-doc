@@ -3,6 +3,11 @@
   "expectCount": 317,
   "actualCount": 64,
   "files": {
+    "src/PlatformManager.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
     "src/cDefine.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -311,11 +316,6 @@
         1578,
         1586
       ]
-    },
-    "src/PlatformManager.js": {
-      "expectCount": 7,
-      "actualCount": 7,
-      "undocumentLines": []
     },
     "src/utils/MatrixStack.js": {
       "expectCount": 7,
