@@ -486,6 +486,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/config/defaultsdeep.js",
+    "file/src/config/defaultsDeep.js.html",
+    "src/config/defaultsDeep.js",
+    "file"
+  ],
+  [
     "src/elementmgr.js",
     "file/src/elementMgr.js.html",
     "src/elementMgr.js",

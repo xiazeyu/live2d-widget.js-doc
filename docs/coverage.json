@@ -1,6 +1,6 @@
 {
-  "coverage": "20.18%",
-  "expectCount": 317,
+  "coverage": "20.12%",
+  "expectCount": 318,
   "actualCount": 64,
   "files": {
     "src/PlatformManager.js": {
@@ -30,24 +30,24 @@
         38,
         39,
         40,
-        111,
-        124,
-        144,
-        172,
-        179,
-        201,
-        206,
-        215,
-        279,
-        306,
-        333,
-        364,
-        372,
-        387,
-        400,
-        407,
-        414,
-        420
+        112,
+        125,
+        145,
+        173,
+        180,
+        202,
+        207,
+        216,
+        280,
+        307,
+        334,
+        365,
+        373,
+        388,
+        401,
+        408,
+        415,
+        421
       ]
     },
     "src/cManager.js": {
@@ -91,6 +91,13 @@
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
+    },
+    "src/config/defaultsDeep.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
     },
     "src/elementMgr.js": {
       "expectCount": 3,
