@@ -13,7 +13,12 @@
       .on('*', (name) => {
         console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
       })
-      .init();
+      .init({
+        dialog: {
+          enable: true,
+          hitokoto: true
+        }
+      });
   </script>
   </body>
 </html>

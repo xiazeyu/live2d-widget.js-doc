@@ -1,6 +1,6 @@
 {
-  "coverage": "19.69%",
-  "expectCount": 330,
+  "coverage": "19.75%",
+  "expectCount": 329,
   "actualCount": 65,
   "files": {
     "src/cDefine.js": {
@@ -26,24 +26,24 @@
         40,
         41,
         42,
-        117,
-        130,
-        150,
-        178,
-        185,
-        207,
-        212,
-        221,
-        285,
-        312,
-        341,
-        372,
-        380,
-        395,
-        408,
-        415,
-        422,
-        428
+        116,
+        129,
+        149,
+        177,
+        184,
+        206,
+        211,
+        220,
+        284,
+        311,
+        340,
+        371,
+        379,
+        394,
+        407,
+        414,
+        421,
+        427
       ]
     },
     "src/cManager.js": {
@@ -96,14 +96,13 @@
       ]
     },
     "src/dialog/index.js": {
-      "expectCount": 6,
+      "expectCount": 5,
       "actualCount": 1,
       "undocumentLines": [
-        55,
-        59,
-        63,
-        72,
-        86
+        61,
+        65,
+        69,
+        78
       ]
     },
     "src/elementMgr.js": {
@@ -115,7 +114,7 @@
       "expectCount": 10,
       "actualCount": 4,
       "undocumentLines": [
-        128,
+        130,
         29,
         30,
         31,

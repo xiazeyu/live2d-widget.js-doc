@@ -67,6 +67,8 @@
 
 
 import { config } from &apos;./config/configMgr&apos;;
+import { L2Dwidget } from &apos;./index&apos;;
+import { createDialogElement } from &apos;./dialog&apos;;
 
 /**
  * The current WebGL element
@@ -82,12 +84,13 @@ let currWebGL = undefined;
 
 let currCanvas;
 
+
 /**
  * Create the canvas and styles using DOM
  * @return {null}
  */
 
-function createElement(eventemitter) {
+function createElement() {
 
   let e = document.getElementById(config.name.div)
   if (e !== null) {
@@ -106,7 +109,11 @@ function createElement(eventemitter) {
   newElem.style.setProperty(&apos;opacity&apos;, config.react.opacity);
   newElem.style.setProperty(&apos;pointer-events&apos;, &apos;none&apos;);
   document.body.appendChild(newElem);
-  eventemitter.emit(&apos;create-container&apos;, newElem);
+  L2Dwidget.emit(&apos;create-container&apos;, newElem);
+
+  if (config.dialog.enable)
+    createDialogElement(newElem);
+
   let newCanvasElem = document.createElement(&apos;canvas&apos;);
   newCanvasElem.setAttribute(&apos;id&apos;, config.name.canvas);
   newCanvasElem.setAttribute(&apos;width&apos;, config.display.width * config.display.superSample);
@@ -120,7 +127,7 @@ function createElement(eventemitter) {
   newElem.appendChild(newCanvasElem);
 
   currCanvas = document.getElementById(config.name.canvas);
-  eventemitter.emit(&apos;create-canvas&apos;, newCanvasElem);
+  L2Dwidget.emit(&apos;create-canvas&apos;, newCanvasElem);
 
   initWebGL();
 

@@ -61,7 +61,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/dialog/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { config } from &apos;../config/configMgr&apos;;
+import { L2Dwidget } from &apos;../index&apos;;
+
 document.head.innerHTML += `
 &lt;style&gt;
   .live2d-widget-dialog-container {
@@ -104,15 +106,19 @@ let containerElement,dialogElement,closeTimer;
  * &#x521B;&#x5EFA;&#x5BF9;&#x8BDD;&#x6846;&#x5143;&#x7D20;
  * @param {HTMLElement} root &#x4F4D;&#x7F6E;
  */
-function createDialogElement(root, config) {
+function createDialogElement(root) {
   containerElement = document.createElement(&apos;div&apos;);
-  containerElement.className = &apos;live2d-widget-dialog-container&apos;
+  containerElement.className = &apos;live2d-widget-dialog-container&apos;;
   containerElement.style.transform = `scale(${config.display.width / 250})`
   dialogElement = document.createElement(&apos;div&apos;);
-  dialogElement.className = &apos;live2d-widget-dialog&apos;
-  dialogElement.innerText = &apos;&#x6240;&#x8C13;&#x7684;&#x4EBA;&#x7C7B;&#xFF0C;&#x53EF;&#x662F;&#x8FDE;&#x77ED;&#x77ED;&#x7684;&#x5341;&#x5206;&#x949F;&#x4E5F;&#x7B49;&#x4E0D;&#x8D77;&#x7684;&#x3002;&apos;
-  containerElement.appendChild(dialogElement)
+  dialogElement.className = &apos;live2d-widget-dialog&apos;;
+  containerElement.appendChild(dialogElement);
   root.appendChild(containerElement);
+
+  L2Dwidget.emit(&apos;create-dialog&apos;, containerElement);
+
+  if (config.dialog.hitokoto)
+    showHitokotoLoop()
 }
 
 function displayDialog() {
@@ -124,7 +130,7 @@ function hiddenDialog() {
 }
 
 function alertText(text) {
-  displayDialog()
+  displayDialog();
   dialogElement.innerText = text;
   clearTimeout(closeTimer);
   closeTimer = setTimeout(function () {
@@ -132,7 +138,7 @@ function alertText(text) {
   }, 5000);
 }
 
-function showHitokoto() {
+function showHitokotoLoop() {
   var xhr = new XMLHttpRequest();
   xhr.open(&apos;get&apos;, &apos;https://v1.hitokoto.cn&apos;);
   xhr.setRequestHeader(&quot;Cache-Control&quot;, &quot;no-cache&quot;);
@@ -140,20 +146,16 @@ function showHitokoto() {
     if (xhr.readyState === 4) {
       var data = JSON.parse(xhr.responseText);
       alertText(data.hitokoto);
-      setTimeout(showHitokoto, 10000)
+      setTimeout(showHitokotoLoop, 10000)
     }
   }
   xhr.send();
 }
 
-module.exports = function live2dWidgetDialog(app) {
-  app.on(&apos;create-container&apos;, function (element) {
-    createDialogElement(element, app.config);
 
-    showHitokoto();
-  });
-}
-</code></pre>
+module.exports = {
+  createDialogElement, displayDialog, hiddenDialog, alertText, showHitokotoLoop
+}</code></pre>
 
 </div>
 

@@ -140,6 +140,8 @@ class L2Dwidget {
  * @param {String}   [userConfig.name.div = &apos;live2d-widget&apos;] ID name of the div div&#x5143;&#x7D20;&#x7684;ID
  * @param {Number}   [userConfig.react.opacity = 0.7] opacity &#x900F;&#x660E;&#x5EA6;
  * @param {Boolean}  [userConfig.dev.border = false] Whether to show border around the canvas &#x5728;canvas&#x5468;&#x56F4;&#x663E;&#x793A;&#x8FB9;&#x754C;
+ * @param {Boolean}  [userConfig.dialog.enable = false] Display dialog &#x663E;&#x793A;&#x4EBA;&#x7269;&#x5BF9;&#x8BDD;&#x6846;
+ * @param {Boolean}  [userConfig.dialog.hitokoto = false] Enable hitokoto &#x4F7F;&#x7528;&#x4E00;&#x8A00;API
  * @return {null}
  */
 
@@ -189,8 +191,6 @@ class L2Dwidget {
 };
 
 let _ = new L2Dwidget();
-
-live2dWidgetDialog(_);
 
 export {
   _ as L2Dwidget,

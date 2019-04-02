@@ -111,9 +111,8 @@ let eventemitter = null;
  */
 
 function theRealInit (emitter){
-  eventemitter = emitter
 
-  createElement(eventemitter);
+  createElement();
   initEvent();
 
   live2DMgr = new cManager(eventemitter)
