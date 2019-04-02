@@ -558,7 +558,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-cManager">cManager</a></span></span><span class="code" data-ice="signature">()</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-cManager">cManager</a></span></span><span class="code" data-ice="signature">(eventemitter: <span>*</span>)</span>
         </p>
       </div>
       <div>
@@ -672,7 +672,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-createElement">createElement</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-createElement">createElement</a></span></span><span class="code" data-ice="signature">(eventemitter: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
@@ -730,7 +730,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-theRealInit">theRealInit</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-theRealInit">theRealInit</a></span></span><span class="code" data-ice="signature">(emitter: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
@@ -1588,7 +1588,7 @@
     
     
     
-    <span class="code" data-ice="name">cManager</span><span class="code" data-ice="signature">()</span>
+    <span class="code" data-ice="name">cManager</span><span class="code" data-ice="signature">(eventemitter: <span>*</span>)</span>
     <span class="right-info">
       
       
@@ -1603,7 +1603,23 @@
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">eventemitter</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -1678,11 +1694,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cLive2DApp.js.html#lineNumber108">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cLive2DApp.js.html#lineNumber113">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {captureFrame} from &apos;<span><a href="file/src/cLive2DApp.js.html#lineNumber108">live2d-widget/src/cLive2DApp.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {captureFrame} from &apos;<span><a href="file/src/cLive2DApp.js.html#lineNumber113">live2d-widget/src/cLive2DApp.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Capture current frame to png file</p>
@@ -1838,15 +1854,15 @@ L2Dwidget.captureFrame(
     
     
     
-    <span class="code" data-ice="name">createElement</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+    <span class="code" data-ice="name">createElement</span><span class="code" data-ice="signature">(eventemitter: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elementMgr.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elementMgr.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createElement} from &apos;<span><a href="file/src/elementMgr.js.html#lineNumber28">live2d-widget/src/elementMgr.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createElement} from &apos;<span><a href="file/src/elementMgr.js.html#lineNumber27">live2d-widget/src/elementMgr.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Create the canvas and styles using DOM</p>
@@ -1854,7 +1870,23 @@ L2Dwidget.captureFrame(
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">eventemitter</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -1958,15 +1990,15 @@ L2Dwidget.captureFrame(
     
     
     
-    <span class="code" data-ice="name">theRealInit</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+    <span class="code" data-ice="name">theRealInit</span><span class="code" data-ice="signature">(emitter: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cLive2DApp.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cLive2DApp.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {theRealInit} from &apos;<span><a href="file/src/cLive2DApp.js.html#lineNumber49">live2d-widget/src/cLive2DApp.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {theRealInit} from &apos;<span><a href="file/src/cLive2DApp.js.html#lineNumber50">live2d-widget/src/cLive2DApp.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Main function of live2d-widget</p>
@@ -1974,7 +2006,23 @@ L2Dwidget.captureFrame(
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">emitter</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   <div class="return-params" data-ice="returnParams">

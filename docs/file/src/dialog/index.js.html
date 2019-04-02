@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | live2d-widget.js</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/dialog/index.js | live2d-widget.js</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -60,140 +60,98 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// Created by xiazeyu.
+<div class="content" data-ice="content"><h1 data-ice="title">src/dialog/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+document.head.innerHTML += `
+&lt;style&gt;
+  .live2d-widget-dialog-container {
+    width: 300px;
+    height: 120px;
+    position: absolute;
+    bottom: 65%;
+    right: 0px;
+    transform-origin: right;
+    padding: 12px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  .live2d-widget-dialog {
+    width: 100%;
+    height: 100%;
+    color: #917159;
+    font-size: 16px;
+    padding: 12px;
+    border: 2px solid rgb(236, 203, 180);
+    background: rgba(236, 203, 180, 0.14);
+    box-sizing: border-box;
+    border-radius: 10px;
+    transform: rotate(-2deg);
+    opacity: 0;
+    transition: 200ms opacity;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    animation: live2d-widget-dialog-tingle 4s ease-in-out 0s infinite alternate;
+  }
+  @keyframes live2d-widget-dialog-tingle {
+    0% { transform: translate(-1px, 1.5px) rotate(-2deg); }
+    100% { transform: translate(1px, -1.5px) rotate(2deg); }
+  }
+&lt;/style&gt;
+`;
 
-////////////////////////////////////
-// Celebrate for the 3.0 version! //
-////////////////////////////////////
+let containerElement,dialogElement,closeTimer;
 
 /**
- * @description The entry point of live2d-widget.
+ * &#x521B;&#x5EFA;&#x5BF9;&#x8BDD;&#x6846;&#x5143;&#x7D20;
+ * @param {HTMLElement} root &#x4F4D;&#x7F6E;
  */
-
-
-&apos;use strict&apos;;
-
-import device from &apos;current-device&apos;;
-import { config, configApplyer }from &apos;./config/configMgr&apos;;
-import live2dWidgetDialog from &apos;./dialog&apos;;
-
-if (process.env.NODE_ENV === &apos;development&apos;){
-  console.log(&apos;--- --- --- --- ---\nLive2Dwidget: Hey that, notice that you are now in DEV MODE.\n--- --- --- --- ---&apos;);
+function createDialogElement(root, config) {
+  containerElement = document.createElement(&apos;div&apos;);
+  containerElement.className = &apos;live2d-widget-dialog-container&apos;
+  containerElement.style.transform = `scale(${config.display.width / 250})`
+  dialogElement = document.createElement(&apos;div&apos;);
+  dialogElement.className = &apos;live2d-widget-dialog&apos;
+  dialogElement.innerText = &apos;&#x6240;&#x8C13;&#x7684;&#x4EBA;&#x7C7B;&#xFF0C;&#x53EF;&#x662F;&#x8FDE;&#x77ED;&#x77ED;&#x7684;&#x5341;&#x5206;&#x949F;&#x4E5F;&#x7B49;&#x4E0D;&#x8D77;&#x7684;&#x3002;&apos;
+  containerElement.appendChild(dialogElement)
+  root.appendChild(containerElement);
 }
 
-let coreApp;
-/**
- * The main entry point, which is ... nothing
- */
+function displayDialog() {
+  dialogElement.style.opacity = 1;
+}
 
-class L2Dwidget {
+function hiddenDialog() {
+  dialogElement.style.opacity = 0;
+}
 
-  constructor() {
-    this.eventHandlers = {};
-    this.config = config;
-  }
+function alertText(text) {
+  displayDialog()
+  dialogElement.innerText = text;
+  clearTimeout(closeTimer);
+  closeTimer = setTimeout(function () {
+    hiddenDialog();
+  }, 5000);
+}
 
-  on(name, handler) {
-    if (typeof handler !== &apos;function&apos;) {
-      throw new TypeError(&apos;Event handler is not a function.&apos;);
+function showHitokoto() {
+  var xhr = new XMLHttpRequest();
+  xhr.open(&apos;get&apos;, &apos;https://v1.hitokoto.cn&apos;);
+  xhr.setRequestHeader(&quot;Cache-Control&quot;, &quot;no-cache&quot;);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      var data = JSON.parse(xhr.responseText);
+      alertText(data.hitokoto);
+      setTimeout(showHitokoto, 10000)
     }
-    if (!this.eventHandlers[name]) {
-      this.eventHandlers[name] = [];
-    }
-    this.eventHandlers[name].push(handler);
-    return this;
   }
+  xhr.send();
+}
 
-  emit(name, ...args) {
-    if (!!this.eventHandlers[name]) {
-      this.eventHandlers[name].forEach(handler =&gt; {
-        if (typeof handler === &apos;function&apos;) {
-          handler(...args);
-        }
-      });
-    }
-    if (!!this.eventHandlers[&apos;*&apos;]) {
-      this.eventHandlers[&apos;*&apos;].forEach(handler =&gt; {
-        if (typeof handler === &apos;function&apos;) {
-          handler(name, ...args);
-        }
-      });
-    }
-    return this;
-  }
+module.exports = function live2dWidgetDialog(app) {
+  app.on(&apos;create-container&apos;, function (element) {
+    createDialogElement(element, app.config);
 
-/**
- * The init function
- * @param {Object}   [userConfig] User&apos;s custom config &#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x7F6E;
- * @param {String}   [userConfig.model.jsonPath = &apos;&apos;] Path to Live2D model&apos;s main json eg. `https://test.com/miku.model.json` model&#x4E3B;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
- * @param {Number}   [userConfig.model.scale = 1] Scale between the model and the canvas &#x6A21;&#x578B;&#x4E0E;canvas&#x7684;&#x7F29;&#x653E;
- * @param {Number}   [userConfig.display.superSample = 2] rate for super sampling rate &#x8D85;&#x91C7;&#x6837;&#x7B49;&#x7EA7;
- * @param {Number}   [userConfig.display.width = 150] Width to the canvas which shows the model canvas&#x7684;&#x957F;&#x5EA6;
- * @param {Number}   [userConfig.display.height = 300] Height to the canvas which shows the model canvas&#x7684;&#x9AD8;&#x5EA6;
- * @param {String}   [userConfig.display.position = &apos;right&apos;] Left of right side to show &#x663E;&#x793A;&#x4F4D;&#x7F6E;&#xFF1A;&#x5DE6;&#x6216;&#x53F3;
- * @param {Number}   [userConfig.display.hOffset = 0] Horizontal offset of the canvas canvas&#x6C34;&#x5E73;&#x504F;&#x79FB;
- * @param {Number}   [userConfig.display.vOffset = -20] Vertical offset of the canvas canvas&#x5782;&#x76F4;&#x504F;&#x79FB;
- * @param {Boolean}  [userConfig.mobile.show = true] Whether to show on mobile device &#x662F;&#x5426;&#x5728;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x663E;&#x793A;
- * @param {Number}   [userConfig.mobile.scale = 0.5] Scale on mobile device &#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x7F29;&#x653E;
- * @param {String}   [userConfig.name.canvas = &apos;live2dcanvas&apos;] ID name of the canvas canvas&#x5143;&#x7D20;&#x7684;ID
- * @param {String}   [userConfig.name.div = &apos;live2d-widget&apos;] ID name of the div div&#x5143;&#x7D20;&#x7684;ID
- * @param {Number}   [userConfig.react.opacity = 0.7] opacity &#x900F;&#x660E;&#x5EA6;
- * @param {Boolean}  [userConfig.dev.border = false] Whether to show border around the canvas &#x5728;canvas&#x5468;&#x56F4;&#x663E;&#x793A;&#x8FB9;&#x754C;
- * @return {null}
- */
-
-  init(userConfig = {}){
-    configApplyer(userConfig);
-    this.emit(&apos;config&apos;, this.config);
-    if((!config.mobile.show)&amp;&amp;(device.mobile())){
-      return;
-    }
-    import(/* webpackMode: &apos;lazy&apos; */ &apos;./cLive2DApp&apos;).then(f =&gt; {
-      coreApp = f;
-      coreApp.theRealInit(this);
-    }).catch(err =&gt; {
-      console.error(err);
-    });
-  }
-
-
-/**
- * Capture current frame to png file {@link captureFrame}
- * @param  {Function} callback The callback function which will receive the current frame
- * @return {null}
- */
-
-  captureFrame(callback){
-    return coreApp.captureFrame(callback);
-  }
-
-/**
- * download current frame {@link L2Dwidget.captureFrame}
- * @return {null}
- */
-
-  downloadFrame(){
-    this.captureFrame(
-      function(e){
-        let link = document.createElement(&apos;a&apos;);
-        document.body.appendChild(link);
-        link.setAttribute(&apos;type&apos;, &apos;hidden&apos;);
-        link.href = e;
-        link.download = &apos;live2d.png&apos;;
-        link.click();
-      }
-    );
-  }
-
-};
-
-let _ = new L2Dwidget();
-
-live2dWidgetDialog(_);
-
-export {
-  _ as L2Dwidget,
+    showHitokoto();
+  });
 }
 </code></pre>
 

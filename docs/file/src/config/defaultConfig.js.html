@@ -74,21 +74,18 @@ const defaultConfig = {
   model: {
     jsonPath: &apos;https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json&apos;,
     scale: 1,
-    hHeadPos: 0.5,
-    vHeadPos: 0.618,
-    myDefine: [],
   },
   display: {
     superSample: 2,
-    width: 150,
-    height: 300,
+    width: 200,
+    height: 400,
     position: &apos;right&apos;,
     hOffset: 0,
     vOffset: -20,
   },
   mobile: {
     show: true,
-    scale: 0.5,
+    scale: 0.8,
     motion: true,
   },
   name: {
@@ -96,15 +93,10 @@ const defaultConfig = {
     div: &apos;live2d-widget&apos;,
   },
   react: {
-    opacityDefault: 0.7,
-    opacityOnHover: 0.2,
-    myFunc: (e) =&gt; {console.log(&apos;(undefined) &#x2511;(&#xFFE3;&#x414; &#xFFE3;)&#x250D;&apos;);},
+    opacity: 1,
   },
   dev: {
-    log: false,
-    border: (process.env.NODE_ENV === &apos;development&apos; ? true : false),
-    mouseLog: false,
-    mouseFunc: (x, y, ix, iy) =&gt; {console.log(`MouseFunc: ${x},${y}; ${ix}, ${iy}`);},
+    border: false
   },
 }
 

@@ -492,6 +492,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/dialog/index.js",
+    "file/src/dialog/index.js.html",
+    "src/dialog/index.js",
+    "file"
+  ],
+  [
     "src/elementmgr.js",
     "file/src/elementMgr.js.html",
     "src/elementMgr.js",
@@ -510,15 +516,45 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/index.js~l2dwidget#config",
+    "class/src/index.js~L2Dwidget.html#instance-member-config",
+    "src/index.js~L2Dwidget#config",
+    "member"
+  ],
+  [
+    "src/index.js~l2dwidget#constructor",
+    "class/src/index.js~L2Dwidget.html#instance-constructor-constructor",
+    "src/index.js~L2Dwidget#constructor",
+    "method"
+  ],
+  [
     "src/index.js~l2dwidget#downloadframe",
     "class/src/index.js~L2Dwidget.html#instance-method-downloadFrame",
     "src/index.js~L2Dwidget#downloadFrame",
     "method"
   ],
   [
+    "src/index.js~l2dwidget#emit",
+    "class/src/index.js~L2Dwidget.html#instance-method-emit",
+    "src/index.js~L2Dwidget#emit",
+    "method"
+  ],
+  [
+    "src/index.js~l2dwidget#eventhandlers",
+    "class/src/index.js~L2Dwidget.html#instance-member-eventHandlers",
+    "src/index.js~L2Dwidget#eventHandlers",
+    "member"
+  ],
+  [
     "src/index.js~l2dwidget#init",
     "class/src/index.js~L2Dwidget.html#instance-method-init",
     "src/index.js~L2Dwidget#init",
+    "method"
+  ],
+  [
+    "src/index.js~l2dwidget#on",
+    "class/src/index.js~L2Dwidget.html#instance-method-on",
+    "src/index.js~L2Dwidget#on",
     "method"
   ],
   [

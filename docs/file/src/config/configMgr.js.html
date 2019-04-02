@@ -88,7 +88,7 @@ let currConfig = {};
 
 function configApplyer(userConfig){
 
-  currConfig = defaultsDeep(userConfig, defaultConfig);
+  defaultsDeep(currConfig, userConfig, defaultConfig);
   // console.log(&apos;Live2Dwidget: currConfig&apos;, currConfig);
 
 }

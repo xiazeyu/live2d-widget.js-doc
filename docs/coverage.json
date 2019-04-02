@@ -1,7 +1,7 @@
 {
-  "coverage": "20.12%",
-  "expectCount": 318,
-  "actualCount": 64,
+  "coverage": "19.69%",
+  "expectCount": 330,
+  "actualCount": 65,
   "files": {
     "src/cDefine.js": {
       "expectCount": 1,
@@ -9,10 +9,9 @@
       "undocumentLines": []
     },
     "src/cLive2DApp.js": {
-      "expectCount": 33,
+      "expectCount": 34,
       "actualCount": 2,
       "undocumentLines": [
-        28,
         29,
         30,
         31,
@@ -25,37 +24,39 @@
         38,
         39,
         40,
-        112,
-        125,
-        145,
-        173,
-        180,
-        202,
+        41,
+        42,
+        117,
+        130,
+        150,
+        178,
+        185,
         207,
-        216,
-        280,
-        307,
-        334,
-        365,
-        373,
-        388,
-        401,
+        212,
+        221,
+        285,
+        312,
+        341,
+        372,
+        380,
+        395,
         408,
         415,
-        421
+        422,
+        428
       ]
     },
     "src/cManager.js": {
       "expectCount": 8,
       "actualCount": 0,
       "undocumentLines": [
-        17,
-        27,
-        40,
-        50,
-        63,
-        69,
-        75,
+        19,
+        29,
+        42,
+        52,
+        65,
+        71,
+        77,
         6
       ]
     },
@@ -94,16 +95,32 @@
         3
       ]
     },
+    "src/dialog/index.js": {
+      "expectCount": 6,
+      "actualCount": 1,
+      "undocumentLines": [
+        55,
+        59,
+        63,
+        72,
+        86
+      ]
+    },
     "src/elementMgr.js": {
       "expectCount": 3,
       "actualCount": 3,
       "undocumentLines": []
     },
     "src/index.js": {
-      "expectCount": 5,
+      "expectCount": 10,
       "actualCount": 4,
       "undocumentLines": [
-        101
+        128,
+        29,
+        30,
+        31,
+        34,
+        45
       ]
     },
     "src/lib/Live2DFramework.js": {
